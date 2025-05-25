@@ -18,8 +18,11 @@ body {
 }
 
 .titulos {
-  margin-left: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .titulo {
   font-size: 3rem;
