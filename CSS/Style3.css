@@ -79,6 +79,12 @@ body {
   color: var(--oscuro);
 }
 
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+
 /************/
 
 .icons {
