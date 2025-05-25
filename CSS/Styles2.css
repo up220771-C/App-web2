@@ -23,12 +23,9 @@ body {
   align-items: center;
 }
 
-
 .titulo {
   font-size: 3rem;
   text-align: center;
-  margin-top: 2rem;
-  margin-right: 10px;
   margin-top: 45px;
   font-size: 35px;
 }
@@ -38,7 +35,6 @@ html {
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
 }
-
 
 .nav-bg {
   background-color: var(--secundario);
@@ -52,11 +48,9 @@ html {
 @media (min-width: 768px) {
   .navegacion-principal {
     flex-direction: row;
-    justify-content: center; 
-    gap: 30rem; 
+    justify-content: space-between;
   }
 }
-
 
 .navegacion-principal a {
   display: block;
@@ -77,8 +71,6 @@ html {
   max-width: 120rem;
   margin: 0 auto;
 }
-
-/*********/
 
 .presentacion {
   font-size: 20px;
@@ -218,4 +210,82 @@ html {
 .footer {
   text-align: center;
   margin-top: 20px;
+}
+
+/* --------------------------------- */
+/*        RESPONSIVE MOBILE          */
+/* --------------------------------- */
+
+@media (max-width: 767px) {
+  .navegacion-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Presentacion,
+  .experiencia {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 1rem;
+  }
+
+  .foto {
+    width: 60%;
+    height: auto;
+    margin: 0 auto 2rem auto;
+  }
+
+  .presentacion {
+    font-size: 1.6rem;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .pic {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .descripcion {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+  }
+
+  .container,
+  .container2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+    height: 150px;
+  }
+
+  .card img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .titulo {
+    font-size: 2.4rem;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .texto {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+  }
+
+  .footer {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
 }
