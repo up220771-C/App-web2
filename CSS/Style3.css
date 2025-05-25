@@ -41,15 +41,9 @@ body {
 
 .navegacion-principal {
   display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 768px) {
-  .navegacion-principal {
-    flex-direction: row;
-    gap: 20rem;
-    margin-left: 350px;
-  }
+  flex-direction: row;
+  gap: 20rem;
+  margin-left: 350px;
 }
 
 .navegacion-principal a {
@@ -66,7 +60,7 @@ body {
   color: var(--oscuro);
 }
 
-/************/
+/* Redes Sociales */
 .icons {
   display: flex;
   justify-content: center;
@@ -99,13 +93,13 @@ body {
   border-color: var(--oscuro);
 }
 
+/* Sección Contacto */
 .contacto {
   padding: 30px;
   border-radius: 1rem;
   margin: 50px;
 }
 
-/** Contacto **/
 .formulario {
   background-color: var(--gris);
   width: min(60rem, 100%);
@@ -153,28 +147,21 @@ body {
   border-color: var(--oscuro);
 }
 
-/** Footer **/
+/* Footer */
 .footer {
   text-align: center;
   margin-top: 200px;
 }
 
 /* ---------------------------------------- */
-/* ----------- RESPONSIVE MOBILE ---------- */
+/* ----------- SOLO RESPONSIVE ------------ */
 /* ---------------------------------------- */
-
 @media (max-width: 767px) {
   .navegacion-principal {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
     gap: 1rem;
     margin-left: 0;
-  }
-
-  .icons {
-    flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
   }
 
   .mail {
