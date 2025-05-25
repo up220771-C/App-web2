@@ -42,8 +42,9 @@ body {
 .navegacion-principal {
   display: flex;
   flex-direction: row;
-  gap: 20rem;
-  margin-left: 350px;
+  gap: 4rem;               /* Reducido de 20rem a 4rem */
+  justify-content: center; /* Centrar los elementos */
+  margin-left: 0;          /* Eliminado margin-left */
 }
 
 .navegacion-principal a {
