@@ -7,20 +7,32 @@
   --grisClaro: #dfe9f3;
 }
 
-html {
-  font-size: 62.5%;
-  box-sizing: border-box;
-  scroll-snap-type: y mandatory;
-}
-
+/* Fondo general negro con patrón amarillo muy sutil */
 body {
   font-size: 16px;
   font-family: 'Krub', sans-serif;
-  background-color: var(--grisClaro);
+  background-color: var(--oscuro);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 193, 7, 0.05),
+      rgba(255, 193, 7, 0.05) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 193, 7, 0.05),
+      rgba(255, 193, 7, 0.05) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  color: var(--blanco);
 }
 
 .texto {
   font-size: 20px;
+  color: var(--blanco);
 }
 
 .titulos {
@@ -32,19 +44,50 @@ body {
   font-size: 3rem;
   text-align: center;
   margin-top: 2rem;
+  color: var(--primario);
+  position: relative;
+  padding-bottom: 0.3rem;
+  font-weight: 700;
 }
 
-/* Navegación Principal */
+.titulo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--primario);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+}
+
+/* Navegación Principal con fondo negro opaco y borde amarillo */
 .nav-bg {
-  background-color: var(--secundario);
+  background-color: rgba(18, 18, 17, 0.9);
+  border-bottom: 2px solid var(--primario);
 }
 
 .navegacion-principal {
   display: flex;
-  flex-direction: row;
-  gap: 4rem;               /* Reducido de 20rem a 4rem */
-  justify-content: center; /* Centrar los elementos */
-  margin-left: 0;          /* Eliminado margin-left */
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+    gap: 20rem;
+    margin-left: 350px;
+  }
 }
 
 .navegacion-principal a {
@@ -52,16 +95,20 @@ body {
   padding: 1rem;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--blanco);
+  color: var(--primario);
   text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 0.5rem;
 }
 
-.navegacion-principal a:hover {
+.navegacion-principal a:hover,
+.navegacion-principal a:focus {
   background-color: var(--primario);
   color: var(--oscuro);
+  outline: none;
 }
 
-/* Redes Sociales */
+/* Íconos sociales */
 .icons {
   display: flex;
   justify-content: center;
@@ -88,13 +135,15 @@ body {
   border: 2px solid white;
 }
 
-.icons a:hover {
+.icons a:hover,
+.icons a:focus {
   background: var(--primario);
   color: var(--oscuro);
   border-color: var(--oscuro);
+  outline: none;
 }
 
-/* Sección Contacto */
+/* Contacto */
 .contacto {
   padding: 30px;
   border-radius: 1rem;
@@ -102,7 +151,7 @@ body {
 }
 
 .formulario {
-  background-color: var(--gris);
+  background-color: var(--oscuro);
   width: min(60rem, 100%);
   margin: 0 auto;
   padding: 2rem;
@@ -142,44 +191,119 @@ body {
   border: 2px solid white;
 }
 
-.icono-correo a:hover {
+.icono-correo a:hover,
+.icono-correo a:focus {
   background: var(--primario);
   color: var(--oscuro);
   border-color: var(--oscuro);
+  outline: none;
 }
 
 /* Footer */
 .footer {
   text-align: center;
   margin-top: 200px;
+  color: var(--gris);
 }
 
-/* ---------------------------------------- */
-/* ----------- SOLO RESPONSIVE ------------ */
-/* ---------------------------------------- */
+/* Mantener diseño original de cajas */
+.Presentacion,
+.escuela,
+.experiencia,
+.card {
+  box-shadow: 0px 5px 15px 0px rgba(255, 193, 7, 0.48);
+  background-color: var(--oscuro);
+  padding: 30px;
+  border-radius: 1rem;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeInUp 1s ease-out;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  background: linear-gradient(
+    to bottom right,
+    var(--oscuro),
+    rgba(255, 193, 7, 0.05)
+  );
+  transition: background 0.3s ease;
+  color: var(--blanco);
+}
+
+.Presentacion:hover,
+.escuela:hover,
+.experiencia:hover,
+.card:hover {
+  background: var(--primario);
+  color: var(--oscuro);
+  border-color: var(--primario);
+}
+
+.Presentacion .titulo,
+.escuela .titulo,
+.experiencia .titulo,
+.card .titulo {
+  color: var(--primario);
+  position: relative;
+  padding-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.Presentacion .titulo::after,
+.escuela .titulo::after,
+.experiencia .titulo::after,
+.card .titulo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primario);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 767px) {
   .navegacion-principal {
-    flex-direction: column !important;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-left: 0;
   }
 
-  .mail {
-    margin-left: 0;
+  .Presentacion,
+  .experiencia,
+  .escuela {
+    flex-direction: column;
     text-align: center;
+    padding: 2rem;
+    margin: 2rem 1rem;
+  }
+
+  .titulo {
+    font-size: 2.4rem;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .texto {
+    font-size: 1.6rem;
+    padding: 0 1rem;
   }
 
   .contacto {
-    margin: 20px;
-    padding: 15px;
-  }
-
-  .formulario {
-    padding: 1.5rem;
-  }
-
-  .footer {
-    margin-top: 50px;
+    margin: 2rem 1rem;
+    padding: 2rem;
   }
 }
