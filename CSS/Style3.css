@@ -73,6 +73,7 @@ html {
 .nav-bg {
   background-color: rgba(18, 18, 17, 0.9);
   border-bottom: 2px solid var(--primario);
+  width: 100%;
 }
 
 .navegacion-principal {
@@ -85,8 +86,8 @@ html {
 @media (min-width: 768px) {
   .navegacion-principal {
     flex-direction: row;
-    gap: 20rem;
-    margin-left: 350px;
+    justify-content: center;
+    gap: 4rem;
   }
 }
 
@@ -206,7 +207,7 @@ html {
   color: var(--gris);
 }
 
-/* Mantener diseño original de cajas */
+/* Cajas estilo original + fondo negro transparente */
 .Presentacion,
 .escuela,
 .experiencia,
@@ -223,20 +224,11 @@ html {
   border: 1px solid rgba(255, 193, 7, 0.2);
   background: linear-gradient(
     to bottom right,
-    var(--oscuro),
+    rgba(18, 18, 17, 0.85),
     rgba(255, 193, 7, 0.05)
   );
   transition: background 0.3s ease;
   color: var(--blanco);
-}
-
-.Presentacion:hover,
-.escuela:hover,
-.experiencia:hover,
-.card:hover {
-  background: var(--primario);
-  color: var(--oscuro);
-  border-color: var(--primario);
 }
 
 .Presentacion .titulo,
