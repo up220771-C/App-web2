@@ -1,53 +1,68 @@
 :root {
-  --blanco: #ffffff;
-  --oscuro: #121211;
-  --primario: #ffc107;
-  --secundario: #0097a7;
-  --gris: #757575;
-  --grisClaro: #dfe9f3;
+  --blanco: #f0f0f0;
+  --oscuro: #1a1a1a;
+  --primario: #3498db;
+  --secundario: #2c3e50;
+  --gris: #7f8c8d;
+  --grisClaro: #ecf0f1;
 }
 
-/* Fondo general negro con patrón amarillo muy sutil */
+/* Fondo general con patrón azul sutil, triángulos y puntos */
 body {
   font-size: 16px;
   font-family: 'Krub', sans-serif;
-  background-color: var(--oscuro);
+  color: var(--oscuro);
+  background-color: #d6e4ff;
   background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 193, 7, 0.05),
-      rgba(255, 193, 7, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 193, 7, 0.05),
-      rgba(255, 193, 7, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    );
-  color: var(--blanco);
+    /* Triángulo grande diagonal azul claro arriba izquierda */
+    linear-gradient(135deg, rgba(52, 152, 219, 0.08) 25%, transparent 25%),
+    /* Triángulo grande diagonal azul oscuro abajo derecha */
+    linear-gradient(315deg, rgba(44, 62, 80, 0.06) 25%, transparent 25%),
+    /* Triángulos medianos distribuidos */
+    linear-gradient(45deg, rgba(52, 152, 219, 0.05) 20%, transparent 20%),
+    linear-gradient(225deg, rgba(44, 62, 80, 0.04) 20%, transparent 20%),
+    /* Puntos radiales */
+    radial-gradient(circle, rgba(52, 152, 219, 0.07) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at center, rgba(52, 152, 219, 0.15), transparent 70%);
+  background-size:
+    100% 100%,
+    100% 100%,
+    60px 60px,
+    60px 60px,
+    40px 40px,
+    10px 10px,
+    100% 100%;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat,
+    repeat,
+    repeat,
+    no-repeat;
 }
 
 .texto {
   font-size: 20px;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
 
 .titulos {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .titulo {
   font-size: 3rem;
-  text-align: center;
   margin-top: 2rem;
+  text-align: center;
   color: var(--primario);
   position: relative;
   padding-bottom: 0.3rem;
   font-weight: 700;
+  animation: fadeInUp 1s ease-out;
 }
 
 .titulo::after {
@@ -60,7 +75,8 @@ body {
   height: 3px;
   background-color: var(--primario);
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.6);
+  opacity: 0.8;
 }
 
 html {
@@ -69,9 +85,9 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-/* Navegación Principal con fondo negro opaco y borde amarillo */
+/* Navegación Principal con fondo secundario y borde primario */
 .nav-bg {
-  background-color: rgba(18, 18, 17, 0.9);
+  background-color: var(--secundario);
   border-bottom: 2px solid var(--primario);
   width: 100%;
 }
@@ -105,7 +121,7 @@ html {
 .navegacion-principal a:hover,
 .navegacion-principal a:focus {
   background-color: var(--primario);
-  color: var(--oscuro);
+  color: var(--grisClaro);
   outline: none;
 }
 
@@ -133,7 +149,7 @@ html {
   border-radius: 50%;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
   text-decoration: none;
-  border: 2px solid white;
+  border: 2px solid var(--blanco);
 }
 
 .icons a:hover,
@@ -152,11 +168,12 @@ html {
 }
 
 .formulario {
-  background-color: var(--oscuro);
+  background-color: var(--blanco);
   width: min(60rem, 100%);
   margin: 0 auto;
   padding: 2rem;
   border-radius: 1rem;
+  color: var(--oscuro);
 }
 
 .formulario fieldset {
@@ -189,7 +206,7 @@ html {
   transition: 0.3s ease-in-out;
   text-decoration: none;
   margin: 2rem auto;
-  border: 2px solid white;
+  border: 2px solid var(--blanco);
 }
 
 .icono-correo a:hover,
@@ -207,13 +224,13 @@ html {
   color: var(--gris);
 }
 
-/* Cajas estilo original + fondo negro transparente */
+/* Cajas estilo original + fondo blanco transparente */
 .Presentacion,
 .escuela,
 .experiencia,
 .card {
-  box-shadow: 0px 5px 15px 0px rgba(255, 193, 7, 0.48);
-  background-color: var(--oscuro);
+  box-shadow: 0px 5px 15px 0px rgba(52, 152, 219, 0.48);
+  background-color: var(--blanco);
   padding: 30px;
   border-radius: 1rem;
   margin: 50px;
@@ -221,39 +238,49 @@ html {
   align-items: center;
   gap: 2rem;
   animation: fadeInUp 1s ease-out;
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  border: 1px solid rgba(52, 152, 219, 0.2);
   background: linear-gradient(
     to bottom right,
-    rgba(18, 18, 17, 0.85),
-    rgba(255, 193, 7, 0.05)
+    var(--blanco),
+    rgba(52, 152, 219, 0.1)
   );
   transition: background 0.3s ease;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
 
-.Presentacion .titulo,
-.escuela .titulo,
-.experiencia .titulo,
-.card .titulo {
-  color: var(--primario);
-  position: relative;
-  padding-bottom: 0.3rem;
-  font-weight: 700;
+.Presentacion:hover,
+.escuela:hover {
+  background: var(--primario);
+  border-color: var(--primario);
+  color: var(--grisClaro);
 }
 
-.Presentacion .titulo::after,
-.escuela .titulo::after,
-.experiencia .titulo::after,
-.card .titulo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 40px;
-  height: 3px;
-  background-color: var(--primario);
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+.Presentacion:hover .titulo,
+.escuela:hover .titulo,
+.Presentacion:hover .texto,
+.escuela:hover .texto,
+.Presentacion:hover .empresa,
+.escuela:hover .empresa,
+.Presentacion:hover .descripcion,
+.escuela:hover .descripcion {
+  color: var(--grisClaro);
+}
+
+/* Experiencia laboral siempre con texto oscuro */
+.experiencia,
+.experiencia .empresa,
+.experiencia .descripcion,
+.experiencia .texto,
+.experiencia .titulo {
+  color: var(--oscuro) !important;
+}
+
+.experiencia:hover,
+.experiencia:hover .empresa,
+.experiencia:hover .descripcion,
+.experiencia:hover .texto,
+.experiencia:hover .titulo {
+  color: var(--oscuro) !important;
 }
 
 /* Animación */
