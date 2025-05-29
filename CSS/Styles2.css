@@ -1,37 +1,51 @@
 :root {
-  --blanco: #ffffff;
-  --oscuro: #000000;         
-  --primario: #ffeb3b;      
-  --secundario: #212121;    
-  --gris: #bdbdbd;          
-  --grisClaro: #121212;      
+  --blanco: #f0f0f0;
+  --oscuro: #1a1a1a;
+  --primario: #3498db;
+  --secundario: #2c3e50;
+  --gris: #7f8c8d;
+  --grisClaro: #ecf0f1;
 }
 
 body {
-  background-color: var(--grisClaro);
+  background-color: #d6e4ff;
   font-size: 16px;
   font-family: 'Krub', sans-serif;
-  color: var(--blanco);       
-    background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 235, 59, 0.05),
-      rgba(255, 235, 59, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 235, 59, 0.05),
-      rgba(255, 235, 59, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    );
+  color: var(--oscuro);
+  background-image:
+    /* Triángulo grande diagonal azul claro arriba izquierda */
+    linear-gradient(135deg, rgba(52, 152, 219, 0.08) 25%, transparent 25%),
+    /* Triángulo grande diagonal azul oscuro abajo derecha */
+    linear-gradient(315deg, rgba(44, 62, 80, 0.06) 25%, transparent 25%),
+    /* Triángulos medianos distribuidos */
+    linear-gradient(45deg, rgba(52, 152, 219, 0.05) 20%, transparent 20%),
+    linear-gradient(225deg, rgba(44, 62, 80, 0.04) 20%, transparent 20%),
+    /* Puntos radiales */
+    radial-gradient(circle, rgba(52, 152, 219, 0.07) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at center, rgba(52, 152, 219, 0.15), transparent 70%);
+  background-size:
+    100% 100%,
+    100% 100%,
+    60px 60px,
+    60px 60px,
+    40px 40px,
+    10px 10px,
+    100% 100%;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat,
+    repeat,
+    repeat,
+    no-repeat;
 }
+
 
 .texto {
   font-size: 20px;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
 
 .titulos {
@@ -47,6 +61,22 @@ body {
   font-size: 35px;
   animation: fadeInUp 1s ease-out;
   color: var(--primario);
+  position: relative;
+  font-weight: 700;
+  padding-bottom: 0.3rem;
+}
+
+.titulo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  width: 40%;
+  height: 3px;
+  background-color: var(--primario);
+  border-radius: 2px;
+  opacity: 0.8;
 }
 
 html {
@@ -56,7 +86,7 @@ html {
 }
 
 .nav-bg {
-  background-color: var(--oscuro);
+  background-color: var(--secundario);
 }
 
 .navegacion-principal {
@@ -83,7 +113,7 @@ html {
 
 .navegacion-principal a:hover {
   background-color: var(--primario);
-  color: var(--oscuro);
+  color: var(--grisClaro);
 }
 
 .contenedor {
@@ -93,16 +123,15 @@ html {
 
 .presentacion {
   font-size: 20px;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
-
 
 .Presentacion,
 .escuela,
 .experiencia,
 .card {
-  box-shadow: 0px 5px 15px 0px rgba(255, 235, 59, 0.48); 
-  background-color: var(--oscuro);
+  box-shadow: 0px 5px 15px 0px rgba(52, 152, 219, 0.48);
+  background-color: var(--blanco);
   padding: 30px;
   border-radius: 1rem;
   margin: 50px;
@@ -110,40 +139,46 @@ html {
   align-items: center;
   gap: 2rem;
   animation: fadeInUp 1s ease-out;
-  border: 1px solid rgba(255, 235, 59, 0.2); 
-  background: linear-gradient(
-    to bottom right,
-    var(--oscuro),
-    rgba(255, 235, 59, 0.05)
-  );
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  background: linear-gradient(to bottom right, var(--blanco), rgba(52, 152, 219, 0.1));
   transition: background 0.3s ease;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
 
 .Presentacion:hover,
-.escuela:hover,
-.experiencia:hover {
+.escuela:hover {
   background: var(--primario);
   border-color: var(--primario);
-  color: var(--oscuro);
+  color: var(--grisClaro);
 }
 
 .Presentacion:hover .titulo,
 .escuela:hover .titulo,
-.experiencia:hover .titulo,
 .Presentacion:hover .texto,
 .escuela:hover .texto,
-.experiencia:hover .texto,
 .Presentacion:hover .empresa,
 .escuela:hover .empresa,
-.experiencia:hover .empresa,
 .Presentacion:hover .descripcion,
-.escuela:hover .descripcion,
-.experiencia:hover .descripcion {
-  color: var(--oscuro);
+.escuela:hover .descripcion {
+  color: var(--grisClaro);
 }
 
+/* Experiencia laboral siempre con texto negro */
+.experiencia,
+.experiencia .empresa,
+.experiencia .descripcion,
+.experiencia .texto,
+.experiencia .titulo {
+  color: var(--oscuro) !important;
+}
 
+.experiencia:hover,
+.experiencia:hover .empresa,
+.experiencia:hover .descripcion,
+.experiencia:hover .texto,
+.experiencia:hover .titulo {
+  color: var(--oscuro) !important;
+}
 
 .Presentacion {
   padding: 30px;
@@ -155,9 +190,11 @@ html {
   padding: 15px;
   margin: 20px auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  max-width: 500px;
+  max-width: 900px;
+  gap: 2rem;
 }
 
 .experiencia {
@@ -166,6 +203,7 @@ html {
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex-direction: row;
 }
 
 .foto {
@@ -217,15 +255,16 @@ html {
   margin-left: 50px;
   margin-right: 50px;
   height: 200px;
-  background-color: var(--oscuro);
+  background-color: var(--blanco);
   flex: 1;
   transition: 0.3s all ease;
-  box-shadow: 0px 5px 15px 0px rgba(255, 235, 59, 0.48);
+  box-shadow: 0px 5px 15px 0px rgba(52, 152, 219, 0.48);
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--oscuro);
 }
 
 .card img {
@@ -240,6 +279,7 @@ html {
 .card:hover {
   flex: 2;
   background-color: var(--primario);
+  color: var(--grisClaro);
 }
 
 .card:hover img {
@@ -256,7 +296,7 @@ html {
   font-weight: bold;
   flex-wrap: wrap;
   width: 100%;
-  color: var(--blanco);
+  color: var(--oscuro);
 }
 
 .pic {
@@ -290,7 +330,7 @@ html {
   height: 3px;
   background-color: var(--primario);
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(255, 235, 59, 0.6);
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.6);
 }
 
 @media (max-width: 767px) {
@@ -365,7 +405,7 @@ html {
   .texto {
     font-size: 1.6rem;
     padding: 0 1rem;
-    color: var(--blanco);
+    color: var(--oscuro);
   }
 
   .footer {
@@ -375,7 +415,6 @@ html {
   }
 }
 
-/* Animación */
 @keyframes fadeInUp {
   from {
     opacity: 0;
